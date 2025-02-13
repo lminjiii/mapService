@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-@Repository
+//@Repository
 public class MapMemberRepository implements MemberRepository {
     // 전체 멤버를 저장할 맵을 선언
     public static Map<Long, Member> store = new HashMap<>();
