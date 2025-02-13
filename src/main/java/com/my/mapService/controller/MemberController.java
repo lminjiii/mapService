@@ -16,6 +16,7 @@ public class MemberController {
 
     @GetMapping("/new")
     public String newmembers() {
+        // 신규회원 가입하기 창 보이기
         return "/members/createMemberForm";
     }
 
@@ -27,6 +28,5 @@ public class MemberController {
         // 2. 받은 회원 정보를 서비스에 보내서
         // 맵에 저장한다.
         return "redirect:/members";
-
     }
 }
