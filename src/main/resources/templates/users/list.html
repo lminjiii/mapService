@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원 리스트</title>
+</head>
+<body>
+<h1>회원 정보 리스트</h1>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>NickName</th>
+        <th>Password</th>
+        <th>Update</th>
+        <th>Del</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user, index : ${users}">
+        <td th:text="${user.userId}"></td>
+        <td th:text="${user.nickName}"></td>
+        <td th:text="${user.password}"></td>
+        <td>
+            <a th:href="@{/update/{userId}(userId=${user.userId})}">
+                <button>수정</button>
+            </a>
+        </td>
+        <td>
+            <a th:href="@{/delete/{userId}(userId=${user.userId})}">
+                <button>삭제</button>
+            </a>
+        </td>
+    </tr>
+
+    <!-- 데이터가 없을 경우 메시지 표시 -->
+    <th:block th:if="${#lists.isEmpty(users)}">
+        <tr>
+            <td colspan="5">데이터가 없습니다.</td>
+        </tr>
+    </th:block>
+
+    </tbody>
+</table>
+<a href="/signUp">회원가입</a>
+<a href="/logIn">로그아웃</a>
+</body>
+</html>
